@@ -1,0 +1,10 @@
+
+.formContainer{
+    padding: 20px;
+    background-color: black;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+input{
+    margin-right: 15px;
+}
