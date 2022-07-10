@@ -14,14 +14,24 @@ const Cars = () => {
     },[])
 
     const addCar = (car) =>{
-        setCars(...cars, car)
+        setCars([...cars,car])
+    }
+
+    const deleteCar = async (id) => {
+        await carService.deleteById(id)
+        const res = [...cars]
+        const index = res.findIndex(value => value.id == id);
+        if (index !== -1){
+            res.splice(index,1)
+            setCars(res)
+        }
     }
 
     return (
         <div>
             <FormCar addCar={addCar}/>
             <div className='container'>
-                {cars.map(car => <Car key={car.id} car={car}/>)}
+                {cars.map(car => <Car key={car.id} car={car} deleteCar={deleteCar}/>)}
              </div>
         </div>
 

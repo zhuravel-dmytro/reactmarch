@@ -1,18 +1,19 @@
 import React from 'react';
 import css from './Car.css'
-const Car = ({ car}) => {
+const Car = ({ car, deleteCar,}) => {
+    const {id, model, price, year} = car
     return (
         <div>
             <div className='wrap'>
                 <div>
-                    <div>id: {car.id}</div>
-                    <div>model: {car.model}</div>
-                    <div>price: {car.price}</div>
-                    <div>year: {car.year}</div>
+                    <div>id: {id}</div>
+                    <div>model: {model}</div>
+                    <div>price: {price}</div>
+                    <div>year: {year}</div>
                 </div>
                 <div>
                     <button>edit</button>
-                    <button>delete</button>
+                    <button onClick={()=>{deleteCar(id)}}>delete</button>
                 </div>
             </div>
 
