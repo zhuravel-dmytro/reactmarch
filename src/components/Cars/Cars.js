@@ -8,6 +8,7 @@ import FormCar from "../FormCar/FormCar";
 
 const Cars = () => {
     const [cars,setCars] = useState([]);
+    const [carForUpdate,setCarForUpdate] = useState(null);
 
     useEffect(()=>{
         carService.getAll().then(({data}) => setCars(data))
@@ -27,11 +28,18 @@ const Cars = () => {
         }
     }
 
+    const updateCar = (car)=>{
+        const res = [...cars];
+        const find = res.find(value => value.id == carForUpdate.id);
+        Object.assign(find,car)
+        setCars(res)
+        setCarForUpdate(null)
+    }
     return (
         <div>
-            <FormCar addCar={addCar}/>
+            <FormCar addCar={addCar} carForUpdate={carForUpdate} updateCar={updateCar}/>
             <div className='container'>
-                {cars.map(car => <Car key={car.id} car={car} deleteCar={deleteCar}/>)}
+                {cars.map(car => <Car key={car.id} car={car} deleteCar={deleteCar} setCarforUpdate={setCarForUpdate}/>)}
              </div>
         </div>
 

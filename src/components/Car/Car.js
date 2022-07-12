@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './Car.css'
-const Car = ({ car, deleteCar,}) => {
+const Car = ({ car, deleteCar, setCarforUpdate}) => {
     const {id, model, price, year} = car
     return (
         <div>
@@ -12,7 +12,7 @@ const Car = ({ car, deleteCar,}) => {
                     <div>year: {year}</div>
                 </div>
                 <div>
-                    <button>edit</button>
+                    <button onClick={()=>{setCarforUpdate(car)}}>edit</button>
                     <button onClick={()=>{deleteCar(id)}}>delete</button>
                 </div>
             </div>
