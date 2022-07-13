@@ -5,5 +5,7 @@ const urls = {
     albums: '/albums',
     comments: '/comments'
 }
-export urls;
-export default BaseURL
+export {
+    urls,
+    BaseURL
+}
