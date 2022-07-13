@@ -4,6 +4,7 @@ import {Link, Route, Routes} from 'react-router-dom'
 import AlbumsComponents from "./components/AlbumsComponents";
 import TodosComponents from "./components/TodosComponents";
 import CommentsComponents from "./components/CommentsComponents";
+import CommentDetaile from "./components/CommentDetaile";
 
 class App extends Component {
     render() {
@@ -18,7 +19,9 @@ class App extends Component {
                <Routes>
                    <Route path={'/'} element={<TodosComponents/>}/>
                    <Route path={'/albums'} element={<AlbumsComponents/>}/>
-                   <Route path={'/comments'} element={<CommentsComponents/>}/>
+                   <Route path={'/comments'} element={<CommentsComponents/>}>
+                       <Route path={':id'} element={<CommentDetaile/>} />
+                   </Route>
                </Routes>
             </div>
         );
