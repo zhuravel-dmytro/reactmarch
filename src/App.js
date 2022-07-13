@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 
-import {Link} from 'react-router-dom'
+import {Link, Route, Routes} from 'react-router-dom'
+import AlbumsComponents from "./components/AlbumsComponents";
+import TodosComponents from "./components/TodosComponents";
+import CommentsComponents from "./components/CommentsComponents";
 
 class App extends Component {
     render() {
@@ -11,6 +14,12 @@ class App extends Component {
                     <li><Link to={'/albums'}>albums</Link></li>
                     <li><Link to={'/comments'}>comments</Link></li>
                 </ul>
+
+               <Routes>
+                   <Route path={'/'} element={<TodosComponents/>}/>
+                   <Route path={'/albums'} element={<AlbumsComponents/>}/>
+                   <Route path={'/comments'} element={<CommentsComponents/>}/>
+               </Routes>
             </div>
         );
     }

@@ -1,5 +1,5 @@
 
-const BaseURL = 'https://jsonplaceholder.typicode.com';
+const baseURL = 'https://jsonplaceholder.typicode.com';
 const urls = {
     todos: '/todos',
     albums: '/albums',
@@ -7,5 +7,5 @@ const urls = {
 }
 export {
     urls,
-    BaseURL
+    baseURL
 }
