@@ -10,7 +10,7 @@ const AlbumsComponents = () => {
             .then(value => {
                 setAlbums([...value])
             })
-    })
+    },[])
     return (
         <div>
             <h1>albums</h1>

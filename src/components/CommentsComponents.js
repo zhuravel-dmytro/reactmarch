@@ -8,7 +8,7 @@ const CommentsComponents = () => {
     const [comment,setComment] = useState([]);
     useEffect(()=>{
         getServices.getComments().then(({data})=>setComment(data))
-    })
+    },[])
     return (
         <div>
 

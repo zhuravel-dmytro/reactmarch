@@ -5,6 +5,9 @@ import AlbumsComponents from "./components/AlbumsComponents";
 import TodosComponents from "./components/TodosComponents";
 import CommentsComponents from "./components/CommentsComponents";
 import CommentDetaile from "./components/CommentDetaile";
+import AlbumsPage from "./pages/AlbumsPage";
+import TodosPage from "./pages/TodosPage";
+import CommentsPage from "./pages/CommentsPage";
 
 class App extends Component {
     render() {
@@ -17,9 +20,9 @@ class App extends Component {
                 </ul>
 
                <Routes>
-                   <Route path={'/'} element={<TodosComponents/>}/>
-                   <Route path={'/albums'} element={<AlbumsComponents/>}/>
-                   <Route path={'/comments'} element={<CommentsComponents/>}>
+                   <Route path={'/'} element={<TodosPage/>}/>
+                   <Route path={'/albums'} element={<AlbumsPage/>}/>
+                   <Route path={'/comments'} element={<CommentsPage/>}>
                        <Route path={':id'} element={<CommentDetaile/>} />
                    </Route>
                </Routes>

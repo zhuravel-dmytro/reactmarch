@@ -7,8 +7,8 @@ const CommentDetaile = () => {
    const {id} =  useParams();
    const [post,setPost]=useState(null);
    useEffect(()=>{
-       getServices.getComments(id).then(value => setPost({...value}))
-   })
+       getServices.getPostById(id).then(value => setPost({...value.data}))
+   },[id])
     return (
         <div>
             {post && (
