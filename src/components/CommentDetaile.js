@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import {getServices} from "../services/AxiosService";
 
+import css from './CommentDetailsStyle.css'
 const CommentDetaile = () => {
    const {id} =  useParams();
    const [post,setPost]=useState(null);
@@ -12,7 +13,8 @@ const CommentDetaile = () => {
     return (
         <div>
             {post && (
-                <div>
+                <div className='container'>
+                    <h3>DETAILS</h3>
                     {post.id}
                     {post.body}
                 </div>
