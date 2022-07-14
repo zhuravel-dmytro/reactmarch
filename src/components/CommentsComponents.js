@@ -11,9 +11,11 @@ const CommentsComponents = () => {
     })
     return (
         <div>
+
             <h1>comments</h1>
-            {comment.map(comment => <CommentComponent key={comment.id} comment={comment}/>)}
             <Outlet/>
+            {comment.map(comment => <CommentComponent key={comment.id} comment={comment}/>)}
+
         </div>
     );
 };

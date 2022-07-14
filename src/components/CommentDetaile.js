@@ -1,9 +1,23 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+
+import {useParams} from "react-router-dom";
+import {getServices} from "../services/AxiosService";
 
 const CommentDetaile = () => {
+   const {id} =  useParams();
+   const [post,setPost]=useState(null);
+   useEffect(()=>{
+       getServices.getComments(id).then(value => setPost({...value}))
+   })
     return (
         <div>
-            <h1>Details</h1>
+            {post && (
+                <div>
+                    {post.id}
+                    {post.body}
+                </div>
+
+            )}
         </div>
     );
 };
