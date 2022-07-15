@@ -1,14 +1,16 @@
 import React, {useEffect, useState} from 'react';
 
-import {getServices} from "../services/AxiosService";
+import {getServices} from "../services/axiosService";
 import CommentComponent from "./CommentComponent";
 import {Outlet} from "react-router-dom";
 
 const CommentsComponents = () => {
     const [comment,setComment] = useState([]);
+
     useEffect(()=>{
         getServices.getComments().then(({data})=>setComment(data))
     },[])
+
     return (
         <div>
 

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-import {baseURL, urls} from "../configs/Urls";
+import {baseURL, urls} from "../configs/urls";
 import TodoComponent from "./TodoComponent";
 
 const TodosComponents = () => {
