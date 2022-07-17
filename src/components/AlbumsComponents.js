@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
 import AlbumComponents from "./AlbumComponents";
+import {MyContext} from "../index";
 
 const AlbumsComponents = () => {
     const [albums,setAlbums] = useState([]);
@@ -15,6 +16,13 @@ const AlbumsComponents = () => {
         <div>
             <h1>albums</h1>
             {albums.map(albums => <AlbumComponents albums={albums} key={albums.id}/>)}
+            <MyContext.Consumer>
+                {
+                    (value)=>{
+                        console.log(value)
+                    }
+                }
+            </MyContext.Consumer>
         </div>
     );
 };

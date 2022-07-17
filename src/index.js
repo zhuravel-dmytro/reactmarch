@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {createContext} from 'react';
 import ReactDOM from 'react-dom';
 import App from "./App";
 import {BrowserRouter} from 'react-router-dom';
 
+let defaultValue = {name: 'dimas', age: 26}
+export let MyContext = createContext(defaultValue);
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
-            <App />
+            <MyContext.Provider value={defaultValue }>
+                <App />
+            </MyContext.Provider>
         </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')
