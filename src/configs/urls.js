@@ -1,5 +1,5 @@
 export class Urls{
-    _url = 'https://jsonplaceholder.typicode.com/users';
+    _url = 'https://jsonplaceholder.typicode.com';
 
     getUsers(){
         return fetch(this._url).then(value => value.json());
@@ -8,6 +8,5 @@ export class Urls{
         return fetch(this._url + '/' + id ).then(value => value.json())
     }
 }
-
 
 
