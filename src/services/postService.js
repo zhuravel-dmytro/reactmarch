@@ -2,10 +2,10 @@ import {axiosService} from "./axiosService";
 import {urls} from "../configs/urls";
 
 
-const userService = {
-    getAll: () => axiosService.get(urls.users)
+const postService = {
+    getAll: () => axiosService.get(urls.posts)
 }
 
 export {
-    userService
+    postService
 }

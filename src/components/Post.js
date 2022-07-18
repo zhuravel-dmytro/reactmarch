@@ -1,17 +1,18 @@
 import React, {Component} from 'react';
 
-class User extends Component {
+class Post extends Component {
     constructor(props) {
         super(props);
     }
+
     render() {
-        const {id,name,username} = this.props.user;
+        const {id,title} = this.props.post
         return (
             <div>
-                {id} -- {name} -- {username}
+                {id} -- {title}
             </div>
         );
     }
 }
 
-export default User;
+export default Post;
