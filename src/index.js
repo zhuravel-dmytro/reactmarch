@@ -1,17 +1,16 @@
 import React, {createContext} from 'react';
 import ReactDOM from 'react-dom';
 import App from "./App";
-import {BrowserRouter} from 'react-router-dom';
+import {Provider,} from "react-redux";
+import {setupStore} from "./redux/store";
 
-let defaultValue = {name: 'dimas', age: 26}
-export let MyContext = createContext(defaultValue);
+const store = setupStore()
+
 ReactDOM.render(
     <React.StrictMode>
-        <BrowserRouter>
-            <MyContext.Provider value={defaultValue }>
-                <App />
-            </MyContext.Provider>
-        </BrowserRouter>
+        <Provider store={store}>
+            <App />
+        </Provider>
     </React.StrictMode>,
     document.getElementById('root')
 );
