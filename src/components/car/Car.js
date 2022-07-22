@@ -15,6 +15,7 @@ const Car = ({car}) => {
             <div>year: {year}</div>
             <div>price: {price}</div>
             <button onClick={()=>{dispstch(carsActions.setCarForUpdate(car))}}>update car</button>
+            <button onClick={()=>{}}>delete car</button>
         </div>
     );
 };
