@@ -1,9 +1,10 @@
 import {createAsyncThunk,createSlice} from "@reduxjs/toolkit";
-import {carService} from "../../services";
 
+import {carService} from "../../services";
 
 const initialState = {
     cars: [],
+    carForUpdate: null,
     errors: null
 };
 
@@ -18,11 +19,22 @@ const getAll = createAsyncThunk(
         }
  }
 )
+const updateById = createAsyncThunk(
+    'carsSlice/update',
+    async ({id, car})=>{
+        const {data} = await carService.updateById(id, car);
+        return data
+    }
+);
 
 const carsSlice = createSlice({
     name: 'carsSlice',
     initialState,
-    reducers: {},
+    reducers: {
+        setCarForUpdate: (state, action) => {
+            state.carForUpdate = action.payload
+        }
+    },
     extraReducers: (builder ) =>
         builder
             .addCase(getAll.fulfilled, (state, action) => {
@@ -32,18 +44,21 @@ const carsSlice = createSlice({
             .addCase(getAll.rejected, (state, action) => {
                 state.errors = action.payload
             })
+            .addCase(updateById.fulfilled, (state, action) => {
+               const currentCar = state.cars.find(value=>value.id === action.payload.id);
+               Object.assign(currentCar, action.payload);
+               state.carForUpdate = null
+            })
 });
 
 
 
-
-
-
-
-const { reducer:carsReducer} = carsSlice;
+const { reducer:carsReducer, actions: { setCarForUpdate} } = carsSlice;
 
 const carsActions = {
-    getAll
+    getAll,
+    setCarForUpdate,
+    updateById
 }
 
 export {
