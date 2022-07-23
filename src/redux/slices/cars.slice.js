@@ -49,6 +49,7 @@ const carsSlice = createSlice({
                Object.assign(currentCar, action.payload);
                state.carForUpdate = null
             })
+            .addCase()
 });
 
 
