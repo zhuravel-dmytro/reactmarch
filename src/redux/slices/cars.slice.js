@@ -33,6 +33,9 @@ const carsSlice = createSlice({
     reducers: {
         setCarForUpdate: (state, action) => {
             state.carForUpdate = action.payload
+        },
+        deleteCar: (state, action) => {
+            state.cars = state.cars.filter(car => car.id !== action.payload.id)
         }
     },
     extraReducers: (builder ) =>
@@ -49,17 +52,18 @@ const carsSlice = createSlice({
                Object.assign(currentCar, action.payload);
                state.carForUpdate = null
             })
-            .addCase()
+
 });
 
 
 
-const { reducer:carsReducer, actions: { setCarForUpdate} } = carsSlice;
+const { reducer:carsReducer, actions: { setCarForUpdate ,deleteCar} } = carsSlice;
 
 const carsActions = {
     getAll,
     setCarForUpdate,
-    updateById
+    updateById,
+    deleteCar
 }
 
 export {
