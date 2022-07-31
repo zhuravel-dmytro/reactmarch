@@ -53,7 +53,7 @@ function sum(a:number,b:number):number{
     return a+b
 }
 
-function showSum(a:number,b:number):number{
+function showSum(a:number,b:number):void{
     console.log(a + b);
 }
 
